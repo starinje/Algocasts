@@ -119,3 +119,36 @@ function fizzBuzz(n) {
     
   }
 }
+
+
+//anagram
+function anagrams(stringA, stringB) {
+  // Clean and prepare both strings
+  const cleanedStringA = stringA
+    .toLowerCase()        // Convert to lowercase
+    .replace(/[^a-z]/g, '') // Remove non-alphabetic characters (anything not a-z)
+    .split('')            // Split into an array of characters
+    .sort()               // Sort the characters alphabetically
+    .join('');            // Join the array back into a string
+
+  const cleanedStringB = stringB
+    .toLowerCase()        // Convert to lowercase
+    .replace(/[^a-z]/g, '') // Remove non-alphabetic characters
+    .split('')            // Split into an array of characters
+    .sort()               // Sort the characters alphabetically
+    .join('');            // Join the array back into a string
+
+  // Compare the cleaned and sorted strings
+  return cleanedStringA === cleanedStringB;
+}
+
+//build a character map
+function buildCharMap(str) {
+  const charMap = {};
+
+  for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+
+  return charMap;
+}
