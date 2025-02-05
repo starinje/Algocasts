@@ -2,7 +2,7 @@
 // all of the array methods....
 //ways to declare a functions
 
-
+for (let item of Items)
 
 
 //Reversing a string
@@ -140,6 +140,21 @@ function anagrams(stringA, stringB) {
 
   // Compare the cleaned and sorted strings
   return cleanedStringA === cleanedStringB;
+}
+
+//chunked array
+function chunk(array, size) {
+
+  const chunked = []
+  let index = 0
+
+  while(index < array.length){
+    chunked.push(array.slice(index, index + size))
+    index = index + size
+  }
+
+  return chunked
+  
 }
 
 //build a character map

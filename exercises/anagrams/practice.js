@@ -10,19 +10,32 @@
 
 function Anagrams(string1, string2) {
 
-  const processedString1 = string1
-                          .toLowerCase()
-                          .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
-                          .split('')
-                          .sort()
-                          .join('')
-  
-    const processedString2 = string2
-                          .toLowerCase()
-                          .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
-                          .split('')
-                          .sort()
-                          .join('')
+  let charMap1 = createCharMap(string1)
+  let charMap2 = createCharMap(string2)
 
-  return processedString1 == processedString2
+  if(string1.length !== string2.length ){
+    return false
+  }
+
+  for (let char in charMap1){
+    if(charMap1[char] !== charMap2[char]){
+      return false
+    }
+  }
+
+  return true
+}
+
+function createCharMap(str){
+
+  const charMap = {}
+
+  for (let char of str){
+    if(!charMap[char]){
+      charMap[char] = 1
+    } else {
+      charMap[char]++
+    }
+  }
+  return charMap
 }

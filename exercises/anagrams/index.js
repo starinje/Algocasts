@@ -8,7 +8,27 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {
+function anagrams(string1, string2) {
+
+  const processedString1 = string1
+                            .toLowerCase() //convert to lowercase
+                            .replace(/[^a-zA-Z0-9]/g, '') //remove spaces and puncuation
+                            .split('') //convert to array 
+                            .sort() //sort the array 
+                            .join('')
+
+  const processedString2 = string2
+                            .toLowerCase() //convert to lowercase
+                            .replace(/[^a-zA-Z0-9]/g, '') //remove spaces and puncuation
+                            .split('') //convert to array 
+                            .sort() //sort the array 
+                            .join('')
+
+  return processedString1 === processedString2
+  
+}
+
+//function anagrams(stringA, stringB) {
 
   // let characterMapStringA = {}
   // let characterMapStringB= {}
@@ -33,23 +53,23 @@ function anagrams(stringA, stringB) {
   
   // return stringACleaned.join('') == stringBCleaned.join('')
 
-  const processedStringA = stringA
-                              .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
-                              .split('')
-                              .sort()
-                              .join('')
+//   const processedStringA = stringA
+//                               .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
+//                               .split('')
+//                               .sort()
+//                               .join('')
   
-  const processedStringB = stringB
-                              .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
-                              .split('')
-                              .sort()
-                              .join('')
+//   const processedStringB = stringB
+//                               .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '') //remove spaces and punctuation
+//                               .split('')
+//                               .sort()
+//                               .join('')
                           
-  return processedStringA == processedStringB
+//   return processedStringA == processedStringB
 
-}
+// }
 
-let result = anagrams('string1 ', ' string1')
-console.log(`Is Anagram: ${result}`)
+// let result = anagrams('string1 ', ' string1')
+// console.log(`Is Anagram: ${result}`)
 
 module.exports = anagrams;
